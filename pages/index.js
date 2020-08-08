@@ -12,16 +12,27 @@ const Home = (props) => {
   useEffect(() => {
     console.log({ screams, error });
   }, [props]);
+
+  const initializeAnalyticsjs = () => {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
+    ga.l=+new Date;
+    ga('create', 'UA-174530101-6', 'auto');
+    ga('send', 'pageview');
+  };
   
   return (
     <div className={styles.container}>
       <Head>
+        <script async src='https://www.google-analytics.com/analytics.js'></script>
+        <script>
+          {initializeAnalyticsjs()}
+        </script>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Read <Link href="/posts/first-post"><a>this page!</a></Link>
+          Read <Link  href="/posts/first-post"><a>this page!</a></Link>
         </h1>
         <p className={styles.description}>
           Get started by editing{' '}
