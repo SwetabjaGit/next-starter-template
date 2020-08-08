@@ -13,20 +13,23 @@ const Home = (props) => {
     console.log({ screams, error });
   }, [props]);
 
-  const initializeAnalyticsjs = () => {
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
-    ga.l=+new Date;
-    ga('create', 'UA-174530101-6', 'auto');
-    ga('send', 'pageview');
-  };
+  useEffect(() => {
+    const initializeAnalyticsjs = () => {
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
+      ga.l=+new Date;
+      console.log('%c Google Analytics Working', 'color: green');
+      ga('create', 'UA-174530101-6', 'auto');
+      ga('send', 'pageview');
+    };
+    
+    initializeAnalyticsjs();
+  }, []);
+
   
   return (
     <div className={styles.container}>
       <Head>
         <script async src='https://www.google-analytics.com/analytics.js'></script>
-        <script>
-          {initializeAnalyticsjs()}
-        </script>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
