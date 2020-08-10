@@ -35,6 +35,21 @@
   align-items: center;
 }
 
+
+.link a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.link a:hover,
+.link a:focus,
+.link a:active {
+  text-decoration: underline;
+}
+
+
+
+
 .title a {
   color: #0070f3;
   text-decoration: none;
